@@ -1,10 +1,21 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
 import ProjectCard from './ProjectCard'
+import VantaBackground from './VantaBackground'
+import { image } from 'framer-motion/client'
 
 const Hero = () => {
   // Your projects with video support
   const projects = [
+    {
+      id: 2,
+      title: "Motion Graphics Showcase",
+      category: "Motion Design",
+      description: "Dynamic text animations and motion graphics with animation",
+      type: "video",
+      videoUrl: "/videos/1.mp4",
+      thumbnail: "/images/2.jpg"
+    },
     {
       id: 1,
       title: "AdGenAI Platform",
@@ -12,16 +23,7 @@ const Hero = () => {
       description: "AI-powered ad creation platform with automated workflows",
       type: "project",
       gradient: "from-purple-400 to-pink-400",
-      // image: "/path/to/your/adgenai-screenshot.jpg" // Add when ready
-    },
-    {
-      id: 2,
-      title: "Kinetic Typography",
-      category: "Motion Design",
-      description: "Dynamic text animations and motion graphics",
-      type: "video",
-      videoUrl: "/videos/1.mp4", // You'll add your video file here
-      thumbnail: "/images/2.jpg" // Optional thumbnail
+      image: "/images/Liquor.png" // Using existing image from your workspace
     },
     {
       id: 3,
@@ -29,7 +31,9 @@ const Hero = () => {
       category: "UX Design", 
       description: "Privacy-first AI interaction platform",
       type: "project",
-      gradient: "from-blue-400 to-cyan-400"
+      gradient: "from-blue-400 to-cyan-400",
+      image: "/images/6.png" // Using existing image
+      
     },
     {
       id: 4,
@@ -37,7 +41,8 @@ const Hero = () => {
       category: "Visual Design",
       description: "Logo design and brand identity systems",
       type: "project",
-      gradient: "from-green-400 to-blue-400"
+      gradient: "from-green-400 to-blue-400",
+      image: "/images/tshirtdesign.png" // Using existing image
     },
     {
       id: 5,
@@ -45,7 +50,8 @@ const Hero = () => {
       category: "Animation",
       description: "Collection of motion graphics and animations",
       type: "video",
-      videoUrl: "/videos/1.mp4"
+      videoUrl: "/videos/1.mp4",
+      thumbnail: "/images/2_2.jpg"
     },
     {
       id: 6,
@@ -53,75 +59,29 @@ const Hero = () => {
       category: "Interface Design",
       description: "Civic engagement and governance platform",
       type: "project",
-      gradient: "from-orange-400 to-red-400"
+      gradient: "from-orange-400 to-red-400",
+      image: "/images/5.png" // Using existing image
     }
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden">
-
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="text-xl font-semibold"
-          >
-            Aditya Yadav
-          </motion.div>
-          
-          <div className="hidden md:flex space-x-8">
-            {['Work', 'Play', 'Info', 'Resume'].map((item, index) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
-              >
-                {item}
-              </motion.a>
-            ))}
-          </div>
-
-          <div className="flex space-x-4">
-            {[
-              { icon: Github, href: "https://github.com/AdityasWorks" },
-              { icon: Linkedin, href: "#" },
-              { icon: Mail, href: "mailto:heyaadi2@gmail.com" }
-            ].map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-                className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
-              >
-                <social.icon size={18} />
-              </motion.a>
-            ))}
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen relative overflow-hidden pt-10">
       {/* Hero Content */}
-      <div className="pt-24 pb-12 px-6">
-        <div className="max-w-7xl mx-auto">
+      <div className="pt-10 pb-12 px-6">
+        {/* Vanta Background */}
+        <VantaBackground>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2 }}
+            className="text-center"
+          >
+            <h2 className="text-2xl md:text-xl font-bold mb-3 text-white">Aditya is Designer that has some Development knowledge</h2>
+          </motion.div>
+        </VantaBackground>
+        <div className=" pt-12 max-w-7xl mx-auto">
           {/* Hero Text */}
-          <div className="text-center mb-16">
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-5xl md:text-7xl font-bold mb-6"
-            >
-              Product Designer
-              <br />
-              <span className="gradient-text">& Developer</span>
-            </motion.h1>
-            
+          <div className="text-center mb-18">
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,20 +96,31 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex justify-center space-x-4"
+              className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
             >
-              <button className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors flex items-center space-x-2">
+              <a 
+                href="#work" 
+                className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors flex items-center justify-center space-x-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('work').scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 <span>View My Work</span>
                 <ArrowRight size={18} />
-              </button>
-              <button className="border border-gray-300 px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors">
+              </a>
+              <a 
+                href="/RESUME_ADI.pdf"
+                target="_blank" 
+                className="border border-gray-300 px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors flex justify-center"
+              >
                 Download Resume
-              </button>
+              </a>
             </motion.div>
           </div>
 
           {/* Project Grid with Video Support */}
-          <div className="grid grid-cols-12 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-12 gap-6 w-[100%] mx-auto">
             {/* Large featured project */}
             <ProjectCard 
               project={projects[0]}
@@ -157,33 +128,31 @@ const Hero = () => {
               delay={0.6}
             />
 
-            {/* Motion design video */}
+            {/* Rest of the project cards remain the same */}
             <ProjectCard 
               project={projects[1]}
-              className="col-span-6 md:col-span-5"
+              className="col-span-12 sm:col-span-6 md:col-span-5"
               delay={0.8}
             />
-
-            {/* UX Project */}
+            
             <ProjectCard 
               project={projects[2]}
-              className="col-span-6 md:col-span-5"
+              className="col-span-12 sm:col-span-6 md:col-span-5"
               delay={1.0}
             />
-
-            {/* Additional projects */}
+            
             <ProjectCard 
               project={projects[3]}
-              className="col-span-6 md:col-span-4"
+              className="col-span-12 sm:col-span-6 md:col-span-4"
               delay={1.2}
             />
-
+            
             <ProjectCard 
               project={projects[4]}
-              className="col-span-6 md:col-span-4"
+              className="col-span-12 sm:col-span-6 md:col-span-4"
               delay={1.4}
             />
-
+            
             <ProjectCard 
               project={projects[5]}
               className="col-span-12 md:col-span-4"

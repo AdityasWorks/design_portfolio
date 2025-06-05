@@ -1,24 +1,36 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import Home from './pages/Home'
-import About from './pages/About'
-import Navigation from './components/Navigation'
-import './index.css'
+import { BrowserRouter } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import WorkSection from './components/WorkSection';
+import PlaySection from './components/PlaySection';
+import InfoSection from './components/InfoSection';
+import ResumeSection from './components/ResumeSection';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-white">
-        <Navigation />
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </AnimatePresence>
+    <BrowserRouter>
+      <div className="App ">
+        <Navbar />
+        <main>
+          <Hero />
+          <section id="work" className="py-20">
+            <WorkSection />
+          </section>
+          <section id="play" className="py-20 ">
+            <PlaySection />
+          </section>
+          <section id="info" className="py-20">
+            <InfoSection />
+          </section>
+          <section id="resume" className="py-20 ">
+            <ResumeSection />
+          </section>
+        </main>
+        <Footer />
       </div>
-    </Router>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
