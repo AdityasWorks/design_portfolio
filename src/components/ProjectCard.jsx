@@ -1,18 +1,40 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Play, Pause, ArrowRight } from 'lucide-react'
 
 const ProjectCard = ({ project, className = "", delay = 0 }) => {
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(true) // Start with playing true
   const [isHovered, setIsHovered] = useState(false)
   const videoRef = useRef(null)
   const containerRef = useRef(null)
 
-  // Handle hover-based play/pause
+  // Initial autoplay for videos when component mounts
+  useEffect(() => {
+    if (videoRef.current && project.type === 'video') {
+      // Small delay to ensure video loads properly
+      const timer = setTimeout(() => {
+        videoRef.current.play()
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch((error) => {
+            console.log('Video autoplay failed:', error);
+          });
+      }, 300);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [project.type]);
+
+  // Handle hover-based pause/play (reversed behavior)
   useEffect(() => {
     if (!videoRef.current || project.type !== 'video') return;
 
     if (isHovered) {
+      // Pause video when hovered
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      // Play video when not hovered
       videoRef.current.play()
         .then(() => {
           setIsPlaying(true);
@@ -20,12 +42,8 @@ const ProjectCard = ({ project, className = "", delay = 0 }) => {
         .catch((error) => {
           console.log('Video play failed:', error);
         });
-    } else if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-      // We intentionally don't reset currentTime here
     }
-  }, [isHovered, project.type, isPlaying]);
+  }, [isHovered, project.type]);
 
   const handleVideoToggle = (e) => {
     e.stopPropagation();
@@ -43,6 +61,7 @@ const ProjectCard = ({ project, className = "", delay = 0 }) => {
     }
   };
 
+  // Rest of your component remains unchanged
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.8 }}
@@ -50,6 +69,7 @@ const ProjectCard = ({ project, className = "", delay = 0 }) => {
       transition={{ duration: 0.8, delay }}
       className={className}
     >
+      {/* All your existing JSX remains exactly the same */}
       <div 
         ref={containerRef}
         className="project-card bg-white rounded-2xl overflow-hidden relative group cursor-pointer h-full"
@@ -96,10 +116,8 @@ const ProjectCard = ({ project, className = "", delay = 0 }) => {
               <h3 className="text-white font-semibold text-lg mb-1">{project.title}</h3>
               <p className="text-white/90 text-sm">{project.description}</p>
             </div>
-
           </div>
         ) : (
-          /* Regular Project Card - No changes needed */
           <div className="p-6 h-full relative overflow-hidden">
             <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10 group-hover:opacity-20 transition-opacity`}></div>
             
@@ -125,7 +143,6 @@ const ProjectCard = ({ project, className = "", delay = 0 }) => {
               </div>
               
               <div className="flex justify-end">
-                <ArrowRight className="text-gray-400 group-hover:text-gray-600 transition-colors" />
               </div>
             </div>
           </div>

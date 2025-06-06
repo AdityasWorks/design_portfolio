@@ -19,15 +19,15 @@ const VantaBackground = ({ children }) => {
           minWidth: 200.00,
           highlightColor: 0xffc300,
           midtoneColor: 0xff1f00,
-          lowlightColor: 0x0d00ff,
+          lowlightColor: 0x2d00ff,
           baseColor: 0xffebeb,
           // highlightColor: 0xFBFBFB,
           // midtoneColor: 0xdb3a34,
           // lowlightColor: 0xC4D9FF,
           // baseColor: 0xC5BAFF,
           blurFactor: 0.850,
-          speed: 3.5,
-          zoom: 0.4
+          speed: 5,
+          zoom: 0.7,
         })
       );
     }
@@ -46,8 +46,8 @@ const VantaBackground = ({ children }) => {
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
-        width: "80%", 
-        height: "600px",
+        width: "1430px", 
+        height: "632px",
         borderRadius: "45px",
         overflow: "hidden",
         margin: "0 auto",
@@ -63,13 +63,13 @@ const VantaBackground = ({ children }) => {
         backgroundImage: "url('/noise.jpg')",
         backgroundRepeat: "repeat",
         backgroundSize: "cover",
-        opacity: 0.2,
+        opacity: 0.1,
         mixBlendMode: "overlay",
         pointerEvents: "none",
         zIndex: 1
       }}
     />
-      <div style={{ position: "relative", zIndex: 1, padding: "20px" }}>
+      <div style={{ position: "relative", zIndex: 1,}}>
         {children}
       </div>
     </div>

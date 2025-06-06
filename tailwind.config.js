@@ -6,12 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        fontFamily: {
-          sans: ['Manrope', 'sans-serif'],
-          manrope: ['Manrope', 'sans-serif'],
-        }
-      },
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',

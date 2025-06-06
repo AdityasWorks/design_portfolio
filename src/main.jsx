@@ -8,3 +8,7 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+          // highlightColor: 0xFBFBFB,
+          // midtoneColor: 0xdb3a34,
+          // lowlightColor: 0xC4D9FF,
+          // baseColor: 0xC5BAFF,
