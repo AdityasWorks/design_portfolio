@@ -41,7 +41,7 @@ const ProjectsPage = ({ onBackClick }) => {
     {
       id: 'posters',
       name: 'POSTERS',
-      image: '/images/liquor.png',
+      image: '/images/zen.png',
       type: 'video',
       videoUrl: '/videos/pos.mp4', 
     },
