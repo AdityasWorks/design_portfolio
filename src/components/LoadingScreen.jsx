@@ -14,6 +14,8 @@ const LoadingScreen = ({ onComplete }) => {
       '/images/city/citysync.gif',
       '/images/city/logged.png',
       '/noise.jpg',
+      '/videos/2k22.mp4',
+      '/videos/loop8.mp4',
     ];
     
     let loadedCount = 0;
