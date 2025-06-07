@@ -3,4 +3,6 @@
 
 @theme {
   --font-sans: "Manrope", system-ui, sans-serif;
+  --color-darkbg: #000000;
+  --color-lightbg: #f6f6f6;
 }

@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion'
 import ProjectCard from './ProjectCard'
+import { useTheme } from '../../context/ThemeContext'
 
 const ProjectsGrid = () => {
+  const { darkMode } = useTheme();
+  
   const projects = [
     {
       id: 3,
@@ -37,7 +40,7 @@ const ProjectsGrid = () => {
   return (
     <div className="container m-auto px-6">
       <motion.h2 
-        className="flex justify-center text-3xl font-medium mb-12"
+        className={`flex justify-center text-3xl font-medium mb-12 ${darkMode ? 'text-white' : 'text-gray-900'}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
@@ -45,11 +48,11 @@ const ProjectsGrid = () => {
         featured projects
       </motion.h2>
       
-      <div className="grid grid-cols-12 gap-6 w-[90%] mx-auto">
+      <div className="grid grid-cols-12 gap-6 w-[80%] mx-auto">
         {/* First row */}
         {/* Layer8 */}
         <motion.div
-          className="col-span-12 lg:col-span-8 h-[520px] relative rounded-xl overflow-hidden"
+          className="col-span-12 lg:col-span-8 h-[468px] relative rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -58,12 +61,13 @@ const ProjectsGrid = () => {
             project={projects[0]}
             className="h-full"
             delay={0.1}
+            darkMode={darkMode}
           />
         </motion.div>
         
         {/* Poster */}
         <motion.div
-          className="col-span-12 lg:col-span-4 h-[520px] relative rounded-xl overflow-hidden"
+          className="col-span-12 lg:col-span-4 h-[468px] relative rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -72,13 +76,14 @@ const ProjectsGrid = () => {
             project={projects[1]}
             className="h-full"
             delay={0}
+            darkMode={darkMode}
           />
         </motion.div>
         
         {/* Second row */}
         {/* Video */}
         <motion.div
-          className="col-span-12 md:col-span-6 h-[400px] relative rounded-xl overflow-hidden"
+          className="col-span-12 md:col-span-7 h-[360px] relative rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -88,12 +93,13 @@ const ProjectsGrid = () => {
             className="h-full"
             delay={0}
             videoLoop={true}
+            darkMode={darkMode}
           />
         </motion.div>
         
         {/* Motion Design */}
         <motion.div
-          className="col-span-12 md:col-span-6 h-[400px] relative rounded-xl overflow-hidden"
+          className="col-span-12 md:col-span-5 h-[360px] relative rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -102,6 +108,7 @@ const ProjectsGrid = () => {
             project={projects[3]}
             className="h-full"
             delay={0}
+            darkMode={darkMode}
           />
         </motion.div>
       </div>

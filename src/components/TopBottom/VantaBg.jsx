@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import FOG from 'vanta/dist/vanta.fog.min';
 
-const VantaBg = ({ children }) => {
+const VantaBg = ({ children, darkMode }) => {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
 
@@ -17,10 +17,10 @@ const VantaBg = ({ children }) => {
           gyroControls: false,
           minHeight: 200.00,
           minWidth: 200.00,
-          highlightColor: 0xf34010,
-          midtoneColor: 0xFBFBFB,
-          lowlightColor: 0xFBFBFB,
-          baseColor: 0x8892e3,
+          highlightColor: darkMode ? 0xc46b37 : 0xf34010,
+          midtoneColor: darkMode ? 0xb980f2 : 0xFBFBFB ,
+          lowlightColor: darkMode ? 0x8eedd2 : 0xFBFBFB,
+          baseColor: darkMode ? 0x1f1d57 : 0x8892e3 ,
           blurFactor: 1,
           speed: 5,
           zoom: 0.4,
@@ -28,11 +28,25 @@ const VantaBg = ({ children }) => {
       );
     }
     
-
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
   }, [vantaEffect]);
 
+  // Update colors when darkMode changes
+  useEffect(() => {
+    if (vantaEffect) {
+      vantaEffect.setOptions({
+        highlightColor: darkMode ? 0xc46b37 : 0xf34010,
+        midtoneColor: darkMode ? 0xb980f2 : 0xFBFBFB ,
+        lowlightColor: darkMode ? 0x8eedd2 : 0xFBFBFB,
+        baseColor: darkMode ? 0x1f1d57 : 0x8892e3 ,
+      });
+    }
+  }, [darkMode, vantaEffect]);
+
   return (
-    <div className= "flex justify-center items-center"
+    <div className="flex justify-center items-center"
       ref={myRef} 
       style={{ 
         display: "flex",
@@ -56,7 +70,7 @@ const VantaBg = ({ children }) => {
         backgroundImage: "url('/noise.jpg')",
         backgroundRepeat: "repeat",
         backgroundSize: "cover",
-        opacity: 0.12,
+        opacity: 0.05,
         mixBlendMode: "overlay",
         pointerEvents: "none",
         zIndex: 1

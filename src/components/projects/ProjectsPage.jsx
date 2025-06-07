@@ -5,7 +5,17 @@ import { ArrowLeft } from 'lucide-react';
 const ProjectsPage = ({ onBackClick }) => {
   const videoRefs = useRef({});
   const [hoveredCategoryId, setHoveredCategoryId] = useState(null);
+  const [isExiting, setIsExiting] = useState(false);
+
+  const handleBackClick = () => {
+    setIsExiting(true);
+    // Delay the actual navigation until animation completes
+    setTimeout(() => {
+      onBackClick();
+    }, 300); // Match this with your animation duration
+  };
   
+
   const categories = [
     {
       id: 'motion',
@@ -22,18 +32,18 @@ const ProjectsPage = ({ onBackClick }) => {
       videoUrl: '/videos/loop8.mp4', 
     },
     {
-      id: 'posters',
-      name: 'POSTERS',
-      image: '/images/liquor.png',
-      type: 'video',
-      videoUrl: '/videos/pos.mp4', 
-    },
-    {
       id: '3d',
       name: '3D',
       image: '/images/roll1.png',
       type: 'video',
       videoUrl: '/videos/Rolloff.mp4', 
+    },
+    {
+      id: 'posters',
+      name: 'POSTERS',
+      image: '/images/liquor.png',
+      type: 'video',
+      videoUrl: '/videos/pos.mp4', 
     },
     {
       id: 'merch',
@@ -64,11 +74,17 @@ const ProjectsPage = ({ onBackClick }) => {
   }, [hoveredCategoryId]);
 
   return (
-    <div className="bg-stone-950 h-screen w-full flex flex-col">
+    <motion.div 
+      className="bg-stone-950 h-screen w-full flex flex-col"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       {/* Back button */}
       <div className="absolute top-6 left-6 z-10 cursor-pointer">
         <button 
-          onClick={onBackClick}
+          onClick={handleBackClick}
           className="cursor-pointer flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
         >
           <ArrowLeft size={18} />
@@ -76,14 +92,18 @@ const ProjectsPage = ({ onBackClick }) => {
       </div>
 
       {/* Category grid - replacing flex with grid */}
-      <div className="grid grid-cols-6 grid-rows-2 h-full w-full gap-1.5 p-1.5">
+      <motion.div 
+        className="grid grid-cols-6 grid-rows-2 h-full w-full gap-1.5 p-1.5"
+        animate={{ opacity: isExiting ? 0 : 1, y: isExiting ? 20 : 0 }}
+        transition={{ duration: 0.3 }}
+      >
         {/* Top row - 2 categories each taking 50% width */}
         {categories.slice(0, 2).map((category, index) => (
           <motion.div
             key={category.id}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            animate={{ opacity: isExiting ? 0 : 1 }}
+            transition={{ duration: 0.5, delay: isExiting ? 0 : index * 0.1 }}
             className="col-span-3 relative h-full cursor-pointer overflow-hidden group"
             onMouseEnter={() => setHoveredCategoryId(category.id)}
             onMouseLeave={() => setHoveredCategoryId(null)}
@@ -140,8 +160,8 @@ const ProjectsPage = ({ onBackClick }) => {
           <motion.div
             key={category.id}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: (index + 2) * 0.1 }}
+            animate={{ opacity: isExiting ? 0 : 1 }}
+            transition={{ duration: 0.5, delay: isExiting ? 0 : (index + 2) * 0.1 }}
             className="col-span-2 relative h-full cursor-pointer overflow-hidden group"
             onMouseEnter={() => setHoveredCategoryId(category.id)}
             onMouseLeave={() => setHoveredCategoryId(null)}
@@ -192,8 +212,8 @@ const ProjectsPage = ({ onBackClick }) => {
             </div>
           </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
