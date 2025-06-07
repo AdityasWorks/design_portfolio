@@ -17,25 +17,18 @@ const VantaBg = ({ children }) => {
           gyroControls: false,
           minHeight: 200.00,
           minWidth: 200.00,
-          highlightColor: 0xffc300,
-          midtoneColor: 0xff1f00,
-          lowlightColor: 0x2d00ff,
-          baseColor: 0xffebeb,
-          // highlightColor: 0xFBFBFB,
-          // midtoneColor: 0xdb3a34,
-          // lowlightColor: 0xC4D9FF,
-          // baseColor: 0xC5BAFF,
-          blurFactor: 0.850,
+          highlightColor: 0xf34010,
+          midtoneColor: 0xFBFBFB,
+          lowlightColor: 0xFBFBFB,
+          baseColor: 0x8892e3,
+          blurFactor: 1,
           speed: 5,
-          zoom: 0.7,
+          zoom: 0.4,
         })
       );
     }
     
-    // Clean up effect on component unmount
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
+
   }, [vantaEffect]);
 
   return (

@@ -20,7 +20,7 @@ const ProjectsGrid = () => {
     {
       id: 1,
       title: "CitySync",
-      description: "Intercollaboration platform for urban communities",
+      description: "CitySync",
       type: "case-study-with-thumbnail",  
       image: "/images/city/citysync.gif",  
       thumbnail: "/images/city/city1.png", 

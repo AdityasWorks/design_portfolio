@@ -95,15 +95,15 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false }) 
         />
       )}
       
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-5 flex flex-col justify-end">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-black/0 to-transparent p-5 flex flex-col justify-end">
         {project.category && (
-          <span className="text-white/80 text-xs uppercase tracking-wider mb-1">
+          <span className="text-white/100 text-xs uppercase tracking-wider mb-1">
             {project.category}
           </span>
         )}
         
         {project.title && (
-          <h3 className="text-white text-lg font-bold mb-1">
+          <h3 className="text-white/90 text-lg font-bold mb-1">
             {project.title}
           </h3>
         )}
