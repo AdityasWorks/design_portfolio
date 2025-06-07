@@ -266,7 +266,7 @@ const InfoSection = () => {
               </motion.a>
               
               <motion.a 
-                href="https://linkedin.com/in/AdityaYadav" 
+                href="https://linkedin.com/in/Adityayadav09" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center space-x-2 px-4 py-3 rounded-full transition-colors
