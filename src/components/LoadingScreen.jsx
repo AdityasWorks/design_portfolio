@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const LoadingScreen = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [assetsLoaded, setAssetsLoaded] = useState(false);
+  const { darkMode } = useTheme();
   
   // Preload critical assets
   useEffect(() => {
@@ -71,24 +73,14 @@ const LoadingScreen = ({ onComplete }) => {
 
   return (
     <motion.div 
-      className="fixed inset-0 bg-white z-50 flex flex-col justify-center items-center"
+      className={`fixed inset-0 z-50 flex flex-col justify-center items-center transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-white'}`}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
-      {/* <div className="mb-8">
-        <motion.h1 
-          className="text-4xl font-bold"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          aditya y.
-        </motion.h1>
-      </div> */}
       
-      <div className="w-64 h-1 bg-gray-200 rounded-full overflow-hidden">
+      <div className={`w-64 h-1 rounded-full overflow-hidden ${darkMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
         <motion.div 
-          className="h-full bg-black"
+          className={`h-full ${darkMode ? 'bg-white' : 'bg-black'}`}
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
           transition={{ duration: 0.1 }}
@@ -96,7 +88,7 @@ const LoadingScreen = ({ onComplete }) => {
       </div>
       
       {/* <motion.p 
-        className="mt-4 text-sm text-gray-500"
+        className={`mt-4 text-sm ${darkMode ? 'text-gray-300' : 'text-gray-500'}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
