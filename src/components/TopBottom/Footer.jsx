@@ -41,7 +41,7 @@ const Footer = () => {
             className="text-l text-black hover:text-gray-900"
             whileHover={{ scale: 1.05 }}
           >
-            !Framer-template
+            !framer-template
           </motion.a>
         </div>
         
