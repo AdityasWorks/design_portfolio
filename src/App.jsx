@@ -5,8 +5,8 @@ import Navbar from './components/TopBottom/Navbar';
 import Hero from './components/Hero';
 import InfoSection from './components/sections/InfoSection';
 import Footer from './components/TopBottom/Footer';
-import ProjectsPage from './components/ProjectsPage';
-import ProjectsGrid from './components/ProjectsGrid';
+import ProjectsPage from './components/projects/ProjectsPage';
+import ProjectsGrid from './components/projects/ProjectsGrid';
 import LoadingScreen from './components/LoadingScreen';
 
 function App() {

@@ -37,13 +37,11 @@ const Footer = () => {
           </motion.a>
           
           <motion.a 
-            href="https://leetcode.com/u/kynen/" 
-            target="_blank" 
-            rel="noopener noreferrer"
+
             className="text-l text-black hover:text-gray-900"
             whileHover={{ scale: 1.05 }}
           >
-            leetcode
+            !Framer-template
           </motion.a>
         </div>
         

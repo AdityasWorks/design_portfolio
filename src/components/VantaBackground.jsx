@@ -63,7 +63,7 @@ const VantaBackground = ({ children }) => {
         backgroundImage: "url('/noise.jpg')",
         backgroundRepeat: "repeat",
         backgroundSize: "cover",
-        opacity: 0.1,
+        opacity: 0.12,
         mixBlendMode: "overlay",
         pointerEvents: "none",
         zIndex: 1

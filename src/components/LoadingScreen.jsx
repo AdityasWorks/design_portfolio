@@ -9,12 +9,11 @@ const LoadingScreen = ({ onComplete }) => {
   useEffect(() => {
     // Create an array of critical images/assets to preload
     const criticalAssets = [
-      // Add paths to any images used in the Hero section
-      '/images/messedup.png',
       '/images/liquor.png',
-      '/images/layer8.png',
-      '/images/roll2.png',
-      '/images/tshirt2.jpg'
+      '/images/roll1.png',
+      '/images/city/citysync.gif',
+      '/images/city/logged.png',
+      '/noise.jpg',
     ];
     
     let loadedCount = 0;

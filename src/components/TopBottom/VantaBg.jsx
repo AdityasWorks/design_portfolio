@@ -53,6 +53,22 @@ const VantaBg = ({ children }) => {
         margin: "0 auto",
       }}
     >
+    <div 
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundImage: "url('/noise.jpg')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "cover",
+        opacity: 0.12,
+        mixBlendMode: "overlay",
+        pointerEvents: "none",
+        zIndex: 1
+      }}
+    />
       <div style={{ position: "relative", zIndex: 1,}}>
         {children}
       </div>
