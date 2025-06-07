@@ -16,7 +16,7 @@ const Footer = () => {
         
         {/* Center - Social links */}
         <div className="flex space-x-6">
-          <motion.a 
+          {/* <motion.a 
             href="https://github.com/AdityasWorks" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -34,7 +34,7 @@ const Footer = () => {
             whileHover={{ scale: 1.05 }}
           >
             linkedin
-          </motion.a>
+          </motion.a> */}
           
           <motion.a 
 
