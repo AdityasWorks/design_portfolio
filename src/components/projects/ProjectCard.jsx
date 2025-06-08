@@ -121,8 +121,8 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false }) 
               poster={project.thumbnail}
             >
               {/* Multiple source formats for better compatibility */}
-              <source src={project.videoUrl} type="video/mp4" />
               {project.videoUrlWebm && <source src={project.videoUrlWebm} type="video/webm" />}
+              <source src={project.videoUrl} type="video/mp4" />
               {/* Fallback text */}
               Your browser does not support HTML5 video.
             </video>
