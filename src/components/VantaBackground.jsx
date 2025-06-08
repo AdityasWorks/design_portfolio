@@ -14,6 +14,13 @@ const VantaBackground = ({ children, darkMode }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Calculate zoom based on screen width
+  const getZoomLevel = (width) => {
+    if (width < 640) return 0.4; // Mobile
+    if (width < 1024) return 0.5; // Small Desktop
+    return 0.6; // Large Desktop
+  };
+
   useEffect(() => {
     if (!vantaEffect && myRef.current) {
       // Small delay to ensure container dimensions are set
@@ -30,9 +37,10 @@ const VantaBackground = ({ children, darkMode }) => {
             baseColor: darkMode ? 0x1f1d57 : 0x8892e3,
             blurFactor: 1,
             speed: 1.5,
-            zoom: 0.6,
-            height: myRef.current.offsetHeight * window.devicePixelRatio,
-            width: myRef.current.offsetWidth * window.devicePixelRatio,
+            zoom: getZoomLevel(windowWidth), // Set initial zoom based on screen width
+            height: myRef.current.offsetHeight,
+            width: myRef.current.offsetWidth,
+            pixelRatio: 1, // Consistent pixel ratio to prevent zoom issues
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
@@ -46,60 +54,60 @@ const VantaBackground = ({ children, darkMode }) => {
     // };
   }, []);
 
-  // Update colors when darkMode changes
+  // Update colors and zoom when darkMode or window size changes
   useEffect(() => {
     if (vantaEffect) {
       vantaEffect.setOptions({
         highlightColor: darkMode ? 0xc46b37 : 0xf76d48,
         midtoneColor: darkMode ? 0xc387ff : 0xFBFBFB,
-        lowlightColor: darkMode ? 0x8eedd2 : 0xbecddd,
+        lowlightColor: darkMode ? 0x8eedd2 : 0xbeddc7,
         baseColor: darkMode ? 0x192961 : 0x88b2e3,
-        zoom: 0.6,
+        zoom: getZoomLevel(windowWidth), // Update zoom based on current window width
+        pixelRatio: 1 // Keep consistent
       });
     }
   }, [darkMode, vantaEffect, windowWidth]);
 
   // Enhanced resize handler with debouncing
-useEffect(() => {
-  if (!vantaEffect || !myRef.current) return;
+  useEffect(() => {
+    if (!vantaEffect || !myRef.current) return;
 
-  const observer = new ResizeObserver(() => {
-    vantaEffect.setOptions({
-      width: myRef.current.offsetWidth,
-      height: myRef.current.offsetHeight,
+    const observer = new ResizeObserver(() => {
+      vantaEffect.setOptions({
+        width: myRef.current.offsetWidth,
+        height: myRef.current.offsetHeight,
+        zoom: getZoomLevel(window.innerWidth), // Update zoom during resize
+        pixelRatio: 1
+      });
+      vantaEffect.resize();
     });
-    vantaEffect.resize();
-  });
 
-  observer.observe(myRef.current);
+    observer.observe(myRef.current);
 
-  return () => observer.disconnect();
-}, [vantaEffect]);
-
+    return () => observer.disconnect();
+  }, [vantaEffect]);
 
   return (
-    <div className="w-full max-w-[75%]  mx-auto relative"
+    <div className="w-full max-w-[75%] mx-auto relative"
       style={{ 
         borderRadius: windowWidth < 640 ? "25px" : "45px",
         overflow: "hidden"
       }}
     >
-      {/* Aspect ratio container - maintains proportions */}
+      {/* Rest of the component remains unchanged */}
       <div 
         className="w-full md:pb-[33%] lg:pb-[44%]" 
         style={{ minHeight: windowWidth < 640 ? "160px" : "180px" }}
       >
-        {/* Vanta container - positioned absolutely within the aspect ratio container */}
         <div 
           ref={myRef}
           className="absolute inset-0 overflow-hidden"
           style={{
-            WebkitMaskImage: "-webkit-radial-gradient(white, black)", // Safari fix for border radius
-            transform: "translateZ(0)", // Forces GPU rendering
-            willChange: "transform" // Hint for browser optimization
+            WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+            transform: "translateZ(0)",
+            willChange: "transform"
           }}
         >
-          {/* Noise overlay */}
           <div 
             className="absolute inset-0 pointer-events-none z-[1]"
             style={{
@@ -112,7 +120,6 @@ useEffect(() => {
           />
         </div>
         
-        {/* Content container */}
         <div className="absolute inset-0 z-[2] py-8 sm:py-10 md:py-12 px-3 sm:px-4 flex justify-center items-center">
           {children}
         </div>

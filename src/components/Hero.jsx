@@ -21,7 +21,7 @@ const Hero = ({ onViewWork }) => {
             transition={{ duration: 1.2 }}
             className="text-center"
           >
-            <h2 className="text-lg sm:text-xl md:text-2xl font-medium mb-2 md:mb-3 text-white">
+            <h2 className="text-lg sm:text-xl md:text-l font-medium mb-2 md:mb-3 text-white">
               Good design can make even a bad product sell.
             </h2>
           </motion.div>
@@ -34,7 +34,7 @@ const Hero = ({ onViewWork }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className={`text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-6 md:mb-8 px-4 ${
+              className={`text-l sm:text-lg md:text-l max-w-3xl mx-auto mb-6 md:mb-8 px-4 ${
                 darkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >
