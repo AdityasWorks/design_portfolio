@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import * as THREE from 'three';
+import THREE from '../utils/three'
 import FOG from 'vanta/dist/vanta.fog.min';
 
 const VantaBackground = ({ children, darkMode }) => {
@@ -19,7 +19,7 @@ const VantaBackground = ({ children, darkMode }) => {
           lowlightColor: darkMode ? 0x8eedd2 : 0xFBFBFB,
           baseColor: darkMode ? 0x1f1d57 : 0x8892e3 ,
           blurFactor: 1,
-          speed: 2.5,
+          speed: 1.5,
           zoom: 0.6,
         })
       );
@@ -34,36 +34,44 @@ const VantaBackground = ({ children, darkMode }) => {
   useEffect(() => {
     if (vantaEffect) {
       vantaEffect.setOptions({
-        highlightColor: darkMode ? 0xc46b37 : 0xf34010,
-        midtoneColor: darkMode ? 0xc387ff : 0xFBFBFB ,
-        lowlightColor: darkMode ? 0x8eedd2 : 0xFBFBFB,
-        baseColor: darkMode ? 0x192961 : 0x8892e3 ,
+          highlightColor: darkMode ? 0xc46b37 : 0xf76d48,
+          midtoneColor: darkMode ? 0xb980f2 : 0xFBFBFB ,
+          lowlightColor: darkMode ? 0x8eedd2 : 0xbecddd,
+          baseColor: darkMode ? 0x1f1d57 : 0x88b2e3 ,
       });
     }
   }, [darkMode, vantaEffect]);
 
+  // Force reinitialization on window resize for better responsiveness
+  useEffect(() => {
+    const handleResize = () => {
+      if (vantaEffect) {
+        vantaEffect.resize();
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [vantaEffect]);
+
   return (
-    <div className="flex justify-center items-center"
+    <div className="w-full max-w-[95%] md:max-w-[90%] lg:max-w-[1430px] mx-auto"
       ref={myRef} 
       style={{ 
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
-        width: "1430px", 
-        height: "632px",
+        height: "auto",
+        aspectRatio: "2.26/1", // Maintains the original aspect ratio (1430/632)
+        minHeight: "250px",
         borderRadius: "45px",
         overflow: "hidden",
-        margin: "0 auto",
       }}
     >
       <div 
+        className="absolute inset-0"
         style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
           backgroundImage: "url('/noise.jpg')",
           backgroundRepeat: "repeat",
           backgroundSize: "cover",
@@ -73,7 +81,7 @@ const VantaBackground = ({ children, darkMode }) => {
           zIndex: 1
         }}
       />
-      <div style={{ position: "relative", zIndex: 1,}}>
+      <div className="relative z-[2] py-12 px-4 w-full flex justify-center items-center">
         {children}
       </div>
     </div>

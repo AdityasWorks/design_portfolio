@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import * as THREE from 'three';
+import THREE from '../../utils/three';
 import FOG from 'vanta/dist/vanta.fog.min';
 
 const VantaBg = ({ children, darkMode }) => {

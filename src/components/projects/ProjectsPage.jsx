@@ -22,35 +22,40 @@ const ProjectsPage = ({ onBackClick }) => {
       name: 'MOTION DESIGN',
       image: '/images/messedup.png',
       type: 'video',
-      videoUrl: '/videos/asv.mp4', 
+      // videoUrl: '/videos/asv.mp4',
+      videoUrlWebm: "/videos/webm/asv.webm", 
     },
     {
       id: 'projects',
       name: 'PROJECTS',
       image: '/images/layer8.png',
       type: 'video',
-      videoUrl: '/videos/loop8.mp4', 
+      // videoUrl: '/videos/loop8.mp4',
+      videoUrlWebm: "/videos/webm/loop8.webm", 
     },
     {
       id: '3d',
       name: '3D',
       image: '/images/roll1.png',
       type: 'video',
-      videoUrl: '/videos/Rolloff.mp4', 
+      // videoUrl: '/videos/Rolloff.mp4',
+      videoUrlWebm: "/videos/webm/Rolloff.webm", 
     },
     {
       id: 'posters',
       name: 'POSTERS',
       image: '/images/zen.png',
       type: 'video',
-      videoUrl: '/videos/pos.mp4', 
+      // videoUrl: '/videos/pos.mp4',
+      videoUrlWebm: "/videos/webm/pos.webm", 
     },
     {
       id: 'merch',
       name: 'MERCH',
       image: '/images/t2.png',
       type: 'video',
-      videoUrl: '/videos/Tshirts.mp4', 
+      // videoUrl: '/videos/Tshirts.mp4',
+      videoUrlWebm: "/videos/webm/Tshirts.webm",
     }
   ];
 
@@ -127,7 +132,8 @@ const ProjectsPage = ({ onBackClick }) => {
                   playsInline
                   preload="metadata"
                 >
-                  <source src={category.videoUrl} type="video/mp4" />
+                  {/* Add WebM source first for better browser compatibility */}
+                  {category.videoUrlWebm && <source src={category.videoUrlWebm} type="video/webm" />}
                 </video>
                 
                 {/* overlay that disappears on hover */}
@@ -185,7 +191,7 @@ const ProjectsPage = ({ onBackClick }) => {
                   playsInline
                   preload="metadata"
                 >
-                  <source src={category.videoUrl} type="video/mp4" />
+                  {category.videoUrlWebm && <source src={category.videoUrlWebm} type="video/webm" />}
                 </video>
                 
                 {/* overlay that disappears on hover */}

@@ -6,15 +6,15 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`relative top-0 left-0 right-0 z-50 py-10 px-70 transition-all duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
+      className={`relative top-0 left-0 right-0 z-50 py-6 sm:py-8 md:py-10 transition-all duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="w-11/12 sm:w-10/12 md:w-7/10 lg:w-7/10 mx-auto px-4 sm:px-6 grid grid-cols-3">
         {/* Left - Logo */}
         <motion.a
-          className={`text-l cursor-pointer ${
+          className={`justify-self-start text-l cursor-pointer ${
             darkMode ? "text-white" : "text-black"
           }`}
           whileHover={{ scale: 1.05 }}
@@ -23,7 +23,7 @@ const Navbar = () => {
         </motion.a>
 
         {/* Center - Theme toggle */}
-        <div className="absolute left-1/2 transform -translate-x-1/2">
+        <div className="justify-self-center flex items-center">
           <motion.button
             className={`w-6 h-6 rounded-full transition-colors duration-300 flex items-center justify-center focus:outline-none`}
             onClick={toggleDarkMode}
@@ -49,7 +49,7 @@ const Navbar = () => {
 
         {/* Right - Link */}
         <motion.a
-          className={`text-l cursor-pointer ${
+          className={`justify-self-end text-l cursor-pointer ${
             darkMode ? "text-white" : "text-black"
           }`}
           whileHover={{ scale: 1.05 }}

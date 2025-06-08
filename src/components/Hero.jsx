@@ -11,7 +11,7 @@ const Hero = ({ onViewWork }) => {
       className={`relative overflow-hidden pt-2 transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
     >
       {/* Hero Content */}
-      <div className="pb-12 px-6">
+      <div className="pb-6 pt-3 md:pb-12 px-4 md:px-6">
         {/* Vanta Background */}
         <VantaBackground darkMode={darkMode}>
           <motion.div
@@ -20,19 +20,20 @@ const Hero = ({ onViewWork }) => {
             transition={{ duration: 1.2 }}
             className="text-center"
           >
-            <h2 className="text-2xl md:text-xl font-medium mb-3 text-white font">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-medium mb-2 md:mb-3 text-white">
               Good design can make even a bad product sell.
             </h2>
           </motion.div>
         </VantaBackground>
-        <div className="pt-13 max-w-7xl mx-auto">
+        
+        <div className="pt-8 md:pt-13 max-w-7xl mx-auto">
           {/* Hero Text */}
           <div className="text-center">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className={`text-xl max-w-3xl mx-auto mb-8 ${
+              className={`text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-6 md:mb-8 px-4 ${
                 darkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >
@@ -44,11 +45,11 @@ const Hero = ({ onViewWork }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+              className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 px-4"
             >
               <button
                 onClick={onViewWork}
-                className={`px-8 py-3 rounded-full font-medium transition-colors flex items-center justify-center space-x-2
+                className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-colors flex items-center justify-center space-x-2
                   ${
                     darkMode
                       ? "bg-white text-gray-900 hover:bg-gray-200"
@@ -61,7 +62,7 @@ const Hero = ({ onViewWork }) => {
               <a
                 href="/RESUME_ADI.pdf"
                 target="_blank"
-                className={`border rounded-full px-8 py-3 font-medium transition-colors flex justify-center
+                className={`border rounded-full px-6 sm:px-8 py-2.5 sm:py-3 font-medium transition-colors flex justify-center
                   ${
                     darkMode
                       ? "border-gray-600 text-white hover:bg-gray-800"

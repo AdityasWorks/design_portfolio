@@ -6,8 +6,8 @@ const InfoSection = () => {
   const { darkMode } = useTheme();
   
   return (
-    <div className={`container mx-auto px-4 py-16 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-      <div className="max-w-[90%] mx-auto space-y-24">
+    <div className={`container  mx-auto px-4 py-16 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+      <div className="max-w-[80%] mx-auto space-y-24">
         {/* Experience Section */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           <motion.div

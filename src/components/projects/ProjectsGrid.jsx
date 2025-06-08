@@ -12,6 +12,7 @@ const ProjectsGrid = () => {
       description: "VPN for AIs",
       type: "video",
       videoUrl: "/videos/loop8.mp4",
+      videoUrlWebm: "/videos/webm/loop8.webm", 
       thumbnail: "/images/layer8.png",
     },
     {
@@ -32,6 +33,7 @@ const ProjectsGrid = () => {
       id: 4,
       type: "video",
       videoUrl: "/videos/2k22.mp4",
+      videoUrlWebm: "/videos/webm/2k22.webm",
       thumbnail: "/images/2k22thumb.jpg",
       category: "Motion Design"
     },
