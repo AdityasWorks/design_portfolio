@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import THREE from '../utils/three'
+import * as THREE from 'three'
 import FOG from 'vanta/dist/vanta.fog.min';
 
 const VantaBackground = ({ children, darkMode }) => {
@@ -31,8 +31,8 @@ const VantaBackground = ({ children, darkMode }) => {
             blurFactor: 1,
             speed: 1.5,
             zoom: 0.6,
-            width: myRef.current.offsetWidth,
-            height: myRef.current.offsetHeight,
+            height: myRef.current.offsetHeight * window.devicePixelRatio,
+            width: myRef.current.offsetWidth * window.devicePixelRatio,
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
@@ -60,35 +60,25 @@ const VantaBackground = ({ children, darkMode }) => {
   }, [darkMode, vantaEffect, windowWidth]);
 
   // Enhanced resize handler with debouncing
-  useEffect(() => {
-    let timeoutId = null;
-    
-    const handleResize = () => {
-      if (vantaEffect && myRef.current) {
-        // Update width and height with current container dimensions
-        vantaEffect.setOptions({
-          width: myRef.current.offsetWidth,
-          height: myRef.current.offsetHeight
-        });
-        vantaEffect.resize();
-      }
-    };
-    
-    const debouncedResize = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(handleResize, 100);
-    };
-    
-    window.addEventListener('resize', debouncedResize);
-    
-    return () => {
-      window.removeEventListener('resize', debouncedResize);
-      clearTimeout(timeoutId);
-    };
-  }, [vantaEffect]);
+useEffect(() => {
+  if (!vantaEffect || !myRef.current) return;
+
+  const observer = new ResizeObserver(() => {
+    vantaEffect.setOptions({
+      width: myRef.current.offsetWidth,
+      height: myRef.current.offsetHeight,
+    });
+    vantaEffect.resize();
+  });
+
+  observer.observe(myRef.current);
+
+  return () => observer.disconnect();
+}, [vantaEffect]);
+
 
   return (
-    <div className="w-full max-w-[95%] md:max-w-[90%] lg:max-w-[1430px] mx-auto relative"
+    <div className="w-full max-w-[75%]  mx-auto relative"
       style={{ 
         borderRadius: windowWidth < 640 ? "25px" : "45px",
         overflow: "hidden"
@@ -96,7 +86,7 @@ const VantaBackground = ({ children, darkMode }) => {
     >
       {/* Aspect ratio container - maintains proportions */}
       <div 
-        className="w-full pb-[44%]" 
+        className="w-full md:pb-[33%] lg:pb-[44%]" 
         style={{ minHeight: windowWidth < 640 ? "160px" : "180px" }}
       >
         {/* Vanta container - positioned absolutely within the aspect ratio container */}

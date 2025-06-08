@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`relative top-0 left-0 right-0 z-50 py-6 sm:py-8 md:py-10 transition-all duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
+      className={`relative top-0 left-0 right-0 z-50 py-6 sm:py-8 md:py-8 transition-all duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
