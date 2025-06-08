@@ -8,7 +8,7 @@ const Hero = ({ onViewWork }) => {
 
   return (
     <div
-      className={`relative overflow-hidden pt-2 transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
+      className={`relative overflow-hidden pt-6 transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
     >
       {/* Hero Content */}
       <div className="pb-6 pt-3 md:pb-12 px-4 md:px-6">

@@ -30,9 +30,7 @@ const VantaBackground = ({ children, darkMode }) => {
             baseColor: darkMode ? 0x1f1d57 : 0x8892e3,
             blurFactor: 1,
             speed: 1.5,
-            zoom: windowWidth < 768 ? 0.8 : 0.6,
-            // Ensure dimensions are correctly set
-            
+            zoom: 0.6,
             width: myRef.current.offsetWidth,
             height: myRef.current.offsetHeight,
             mouseControls: true,
@@ -43,9 +41,9 @@ const VantaBackground = ({ children, darkMode }) => {
       }, 50);
     }
     
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
+    // return () => {
+    //   if (vantaEffect) vantaEffect.destroy();
+    // };
   }, []);
 
   // Update colors when darkMode changes

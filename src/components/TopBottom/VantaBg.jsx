@@ -28,9 +28,9 @@ const VantaBg = ({ children, darkMode }) => {
       );
     }
     
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
+    // return () => {
+    //   if (vantaEffect) vantaEffect.destroy();
+    // };
   }, [vantaEffect]);
 
   // Update colors when darkMode changes
