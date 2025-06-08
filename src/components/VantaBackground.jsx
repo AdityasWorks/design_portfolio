@@ -54,7 +54,7 @@ const VantaBackground = ({ children, darkMode }) => {
         midtoneColor: darkMode ? 0xc387ff : 0xFBFBFB,
         lowlightColor: darkMode ? 0x8eedd2 : 0xbecddd,
         baseColor: darkMode ? 0x192961 : 0x88b2e3,
-        zoom: windowWidth < 768 ? 0.8 : 0.6,
+        zoom: 0.6,
       });
     }
   }, [darkMode, vantaEffect, windowWidth]);
