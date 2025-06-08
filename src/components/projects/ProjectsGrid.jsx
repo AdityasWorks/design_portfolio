@@ -42,19 +42,19 @@ const ProjectsGrid = () => {
   return (
     <div className="container m-auto px-6">
       <motion.h2 
-        className={`flex justify-center text-3xl font-medium mb-12 ${darkMode ? 'text-white' : 'text-gray-900'}`}
+        className={`flex justify-center text-3xl font-medium mb-6 pt-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
-        featured projects
+        featured work
       </motion.h2>
       
-      <div className="grid grid-cols-12 gap-6 w-[80%] mx-auto">
+      <div className="grid grid-cols-12 gap-2 w-[65%] mx-auto">
         {/* First row */}
         {/* Layer8 */}
         <motion.div
-          className="col-span-12 lg:col-span-8 h-[468px] relative rounded-xl overflow-hidden"
+          className="col-span-12 lg:col-span-8 h-[400px] relative rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -69,7 +69,7 @@ const ProjectsGrid = () => {
         
         {/* Poster */}
         <motion.div
-          className="col-span-12 lg:col-span-4 h-[468px] relative rounded-xl overflow-hidden"
+          className="col-span-12 lg:col-span-4 h-[400px] relative rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -85,7 +85,7 @@ const ProjectsGrid = () => {
         {/* Second row */}
         {/* Video */}
         <motion.div
-          className="col-span-12 md:col-span-7 h-[360px] relative rounded-xl overflow-hidden"
+          className="col-span-12 md:col-span-6 h-[300px] relative rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -101,7 +101,7 @@ const ProjectsGrid = () => {
         
         {/* Motion Design */}
         <motion.div
-          className="col-span-12 md:col-span-5 h-[360px] relative rounded-xl overflow-hidden"
+          className="col-span-12 md:col-span-6 h-[300px] relative rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}

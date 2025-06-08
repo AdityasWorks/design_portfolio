@@ -49,11 +49,11 @@ const AppContent = () => {
                 <main>
                   <Hero onViewWork={() => setShowProjects(true)} />
                   
-                  <section id="projects" className={`py-20 transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}>
+                  <section id="projects" className={`pt-30 transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}>
                     <ProjectsGrid/>
                   </section>
                   
-                  <section id="info" className={`py-10 transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}>
+                  <section id="info" className={`pt-20 transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}>
                     <InfoSection />
                   </section>
                 </main>

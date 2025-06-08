@@ -11,7 +11,7 @@ const Hero = ({ onViewWork }) => {
       className={`relative overflow-hidden  transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
     >
       {/* Hero Content */}
-      <div className="pb-6 pt-3 md:pb-16 px-4 md:px-6">
+      <div className="px-4 md:px-6">
         {/* Vanta Background */}
 
         <VantaBackground darkMode={darkMode}>
@@ -27,7 +27,7 @@ const Hero = ({ onViewWork }) => {
           </motion.div>
         </VantaBackground>
         
-        <div className="pt-8 md:pt-13 max-w-7xl mx-auto">
+        <div className="pt-8 md:pt-8 max-w-7xl mx-auto">
           {/* Hero Text */}
           <div className="text-center">
             <motion.p
