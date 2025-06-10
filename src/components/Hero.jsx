@@ -21,7 +21,7 @@ const Hero = ({ onViewWork }) => {
             transition={{ duration: 1.2 }}
             className="text-center"
           >
-            <h2 className="text-base sm:text-l md:text-l font-medium mb-2 md:mb-3 text-white">
+            <h2 className="text-base font-medium mb-2 md:mb-3 text-white">
               Good design can make even a bad product sell.
             </h2>
           </motion.div>

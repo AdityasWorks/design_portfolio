@@ -8,8 +8,7 @@ const ProjectsGrid = () => {
   const projects = [
     {
       id: 3,
-      title: "Layer8",
-      description: "VPN for AIs",
+      category: "Layer8",
       type: "video",
       videoUrl: "/videos/loop8.mp4",
       videoUrlWebm: "/videos/webm/loop8.webm", 
