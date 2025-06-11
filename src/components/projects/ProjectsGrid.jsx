@@ -13,6 +13,7 @@ const ProjectsGrid = () => {
       videoUrl: "/videos/loop8.mp4",
       videoUrlWebm: "/videos/webm/loop8.webm", 
       thumbnail: "/images/layer8.png",
+      externalLink: "https://www.behance.net/gallery/227953655/Layer8"
     },
     {
       id: 2,
@@ -26,7 +27,8 @@ const ProjectsGrid = () => {
       description: "CitySync",
       type: "case-study-with-thumbnail",  
       image: "/images/city/citysync.gif",  
-      thumbnail: "/images/city/city1.png", 
+      thumbnail: "/images/city/city1.png",
+      // externalLink: "https://citysync.vercel.app"
     },
     {
       id: 4,
@@ -37,6 +39,13 @@ const ProjectsGrid = () => {
       category: "Motion Design"
     },
   ]
+
+  // Updated function to open in a new tab 
+  const handleProjectClick = (project) => {
+    if (project.externalLink) {
+      window.open(project.externalLink, '_blank', 'noopener,noreferrer');
+    }
+  }
 
   return (
     <div className="container m-auto px-6">
@@ -53,10 +62,11 @@ const ProjectsGrid = () => {
         {/* First row */}
         {/* Layer8 */}
         <motion.div
-          className="col-span-12 lg:col-span-8 h-[400px] relative rounded-xl overflow-hidden"
+          className="col-span-12 lg:col-span-8 h-[400px] relative rounded-xl overflow-hidden cursor-pointer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          onClick={() => handleProjectClick(projects[0])}
         >
           <ProjectCard 
             project={projects[0]}
@@ -82,12 +92,13 @@ const ProjectsGrid = () => {
         </motion.div>
         
         {/* Second row */}
-        {/* Video */}
+        {/* CitySync */}
         <motion.div
-          className="col-span-12 md:col-span-6 h-[300px] relative rounded-xl overflow-hidden"
+          className="col-span-12 md:col-span-6 h-[300px] relative rounded-xl overflow-hidden cursor-pointer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
+          onClick={() => handleProjectClick(projects[2])}
         >
           <ProjectCard 
             project={projects[2]}
