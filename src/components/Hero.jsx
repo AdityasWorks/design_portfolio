@@ -8,7 +8,7 @@ const Hero = ({ onViewWork }) => {
 
   return (
     <div
-      className={`relative overflow-hidden  transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
+      className={`relative overflow-hidden pt-4 transition-colors duration-300 ${darkMode ? 'bg-darkbg' : 'bg-lightbg'}`}
     >
       {/* Hero Content */}
       <div className="px-4 md:px-6">
@@ -34,12 +34,12 @@ const Hero = ({ onViewWork }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className={`text-[19px] max-w-3xl mx-auto mb-6 md:mb-8 px-4 ${
+              className={`text-[16px] max-w-3xl mx-auto mb-6 md:mb-8 px-4 ${
                 darkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >
               I craft beautiful digital experiences with code, motion graphics,
-              and user-centered design thinking.
+              and user-centered <br/> design thinking.
             </motion.p>
 
             <motion.div
@@ -50,7 +50,7 @@ const Hero = ({ onViewWork }) => {
             >
               <button
                 onClick={onViewWork}
-                className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-colors flex items-center justify-center space-x-2
+                className={`cursor-pointer px-6 sm:px-8 py-2.5 sm:py-3 h-10 w-50 text-sm rounded-full font-medium transition-colors flex items-center justify-center space-x-2
                   ${
                     darkMode
                       ? "bg-white text-gray-900 hover:bg-gray-200"
@@ -63,7 +63,7 @@ const Hero = ({ onViewWork }) => {
               <a
                 href="/RESUME_ADI.pdf"
                 target="_blank"
-                className={`border rounded-full px-6 sm:px-8 py-2.5 sm:py-3 font-medium transition-colors flex justify-center
+                className={`border rounded-full px-6 sm:px-8 py-2.5 sm:py-3 h-10 w-50 text-sm font-medium transition-colors flex justify-center items-center
                   ${
                     darkMode
                       ? "border-gray-600 text-white hover:bg-gray-800"

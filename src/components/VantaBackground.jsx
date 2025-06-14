@@ -16,8 +16,8 @@ const VantaBackground = ({ children, darkMode }) => {
 
   // Calculate zoom based on screen width
   const getZoomLevel = (width) => {
-    if (width < 640) return 0.4; // Mobile
-    if (width < 1024) return 0.5; // Small Desktop
+    if (width < 1000) return 0.2; // Mobile
+    if (width < 1280) return 0.4; // Small Desktop
     return 0.6; // Large Desktop
   };
 
@@ -90,14 +90,14 @@ const VantaBackground = ({ children, darkMode }) => {
   return (
     <div className="w-full max-w-[75%] mx-auto relative"
       style={{ 
-        borderRadius: windowWidth < 640 ? "25px" : "45px",
+        borderRadius: windowWidth < 1024 ? "15px" : "30px",
         overflow: "hidden"
       }}
     >
       {/* Rest of the component remains unchanged */}
       <div 
         className="w-full md:pb-[33%] lg:pb-[44%]" 
-        style={{ minHeight: windowWidth < 640 ? "160px" : "180px" }}
+        style={{ minHeight: windowWidth < 640 ? "180px" : "180px" }}
       >
         <div 
           ref={myRef}

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false }) => {
+const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false, darkMode }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
@@ -77,7 +77,8 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false }) 
   }, [isHovered, project.type, videoLoop, videoLoaded, videoError]);
   
   // Add click handler to help with mobile and autoplay restrictions
-  const handleCardClick = () => {
+  const handleCardClick = (e) => {
+    // Only handle card clicks if it's a video type
     if (project.type === 'video' && videoRef.current && !videoError) {
       // Toggle play/pause on click for videos
       if (videoRef.current.paused) {
@@ -85,6 +86,9 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false }) 
       } else {
         videoRef.current.pause();
       }
+      
+      // Stop event propagation so it doesn't trigger parent onClick
+      e.stopPropagation();
     }
   };
 
@@ -132,6 +136,7 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false }) 
       
       {project.type === 'case-study-with-thumbnail' && (
         <>
+          {/* Base GIF - shown when not hovered */}
           <div 
             className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 z-[1] ${isHovered ? 'opacity-0' : 'opacity-100'}`}
             style={{ backgroundImage: `url(${project.image})` }}
@@ -142,7 +147,9 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false }) 
             className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 z-[1] ${isHovered ? 'opacity-100' : 'opacity-0'}`}
             style={{ backgroundImage: `url(${project.thumbnail})` }}
           />
-        </>
+          
+          {/* Add an extra dark overlay to ensure text visibility */}
+Z        </>
       )}
       
       {(project.type === 'case-study' || project.type === 'poster') && (
@@ -155,7 +162,8 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false }) 
         />
       )}
       
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent p-4 sm:p-5 flex flex-col justify-end">
+      {/* Text overlay with higher z-index */}
+      <div className="absolute inset-0  p-4 sm:p-5 flex flex-col justify-end z-[2]">
         {project.category && (
           <span className="text-white/100 text-xs uppercase tracking-wider mb-1">
             {project.category}
@@ -163,13 +171,13 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false }) 
         )}
         
         {project.title && (
-          <h3 className="text-white/90 text-base sm:text-lg font-bold mb-1">
+          <h3 className="text-white/100 text-base sm:text-lg font-bold mb-1">
             {project.title}
           </h3>
         )}
         
         {project.description && (
-          <p className="text-white/80 text-xs sm:text-sm">
+          <p className="text-white/90 text-xs sm:text-sm">
             {project.description}
           </p>
         )}

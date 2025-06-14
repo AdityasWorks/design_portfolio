@@ -28,7 +28,7 @@ const ProjectsPage = ({ onBackClick }) => {
     {
       id: 'projects',
       name: 'PROJECTS',
-      image: '/images/layer8.png',
+      image: '/images/l8hero.png',
       type: 'video',
       videoUrl: '/videos/loop8.mp4',
       videoUrlWebm: "/videos/webm/loop8.webm", 
@@ -43,7 +43,7 @@ const ProjectsPage = ({ onBackClick }) => {
     },
     {
       id: 'posters',
-      name: 'POSTERS',
+      name: 'GRAPHIC DESIGN',
       image: '/images/zen.png',
       type: 'video',
       videoUrl: '/videos/pos.mp4',

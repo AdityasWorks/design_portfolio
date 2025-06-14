@@ -12,7 +12,7 @@ const ProjectsGrid = () => {
       type: "video",
       videoUrl: "/videos/loop8.mp4",
       videoUrlWebm: "/videos/webm/loop8.webm", 
-      thumbnail: "/images/layer8.png",
+      thumbnail: "/images/l8hero.png",
       externalLink: "https://www.behance.net/gallery/227953655/Layer8"
     },
     {
@@ -23,11 +23,10 @@ const ProjectsGrid = () => {
     },
     {
       id: 1,
-      title: "CitySync",
       description: "CitySync",
       type: "case-study-with-thumbnail",  
       image: "/images/city/citysync.gif",  
-      thumbnail: "/images/city/city1.png",
+      thumbnail: "/images/city/city2.png",
       // externalLink: "https://citysync.vercel.app"
     },
     {

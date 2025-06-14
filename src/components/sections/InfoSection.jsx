@@ -6,7 +6,7 @@ const InfoSection = () => {
   const { darkMode } = useTheme();
   
   return (
-    <div className={`container  mx-auto px-4 py-16 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+    <div className={`container  mx-auto px-4 py-12 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
       <div className="max-w-[65%] mx-auto space-y-24">
         {/* Experience Section */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
@@ -63,6 +63,65 @@ const InfoSection = () => {
           </motion.div>
         </div>
         
+
+
+                {/* Skills Section */}
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h2 className="text-xl font-medium mb-4">
+              Skills & expertise
+            </h2>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+          >
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <div className={`p-2 rounded-full ${darkMode ? 'bg-darkbg/80' : 'bg-lightbg/80'}`}>
+                  <Palette size={18} />
+                </div>
+                <h3 className="text-base font-medium">Design</h3>
+              </div>
+              <ul className={`text-sm pl-3 space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <li>UI/UX Design</li>
+                <li>Figma, Adobe XD</li>
+                <li>Photoshop, Illustrator</li>
+                <li>Motion design (After Effects)</li>
+                <li>3D Art (Blender, Unreal Engine)</li>
+                <li>Brand identity</li>
+              </ul>
+            </div>
+
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <div className={`p-2 rounded-full ${darkMode ? 'bg-darkbg/80' : 'bg-lightbg/80'}`}>
+                  <Code size={18} />
+                </div>
+                <h3 className="text-base font-medium">Development</h3>
+              </div>
+              <ul className={`text-sm pl-3 space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <li>React, Next.js</li>
+                <li>Node.js, Express</li>
+                <li>Python, Java, C++</li>
+                <li>MongoDB, MySql</li>
+                <li>Responsive web design</li>
+              </ul>
+            </div>
+            
+          </motion.div>
+        </div>
+
+
+
+
         {/* My design approach section */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           <motion.div
@@ -117,59 +176,7 @@ const InfoSection = () => {
           </motion.div>
         </div>
         
-        {/* Skills Section */}
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <h2 className="text-xl font-medium mb-4">
-              Skills & expertise
-            </h2>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-8"
-          >
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className={`p-2 rounded-full ${darkMode ? 'bg-darkbg/80' : 'bg-lightbg/80'}`}>
-                  <Palette size={18} />
-                </div>
-                <h3 className="text-base font-medium">Design</h3>
-              </div>
-              <ul className={`text-sm pl-3 space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                <li>UI/UX Design</li>
-                <li>Figma, Adobe XD</li>
-                <li>Photoshop, Illustrator</li>
-                <li>Motion design (After Effects)</li>
-                <li>3D Art (Blender, Unreal Engine)</li>
-                <li>Brand identity</li>
-              </ul>
-            </div>
 
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className={`p-2 rounded-full ${darkMode ? 'bg-darkbg/80' : 'bg-lightbg/80'}`}>
-                  <Code size={18} />
-                </div>
-                <h3 className="text-base font-medium">Development</h3>
-              </div>
-              <ul className={`text-sm pl-3 space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                <li>React, Next.js</li>
-                <li>Node.js, Express</li>
-                <li>Python, Java, C++</li>
-                <li>MongoDB, MySql</li>
-                <li>Responsive web design</li>
-              </ul>
-            </div>
-            
-          </motion.div>
-        </div>
         
         {/* Beyond the screen Section */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
@@ -213,7 +220,7 @@ const InfoSection = () => {
               </p>
             </div>
             
-            <div>
+            {/* <div>
               <div className="flex items-center space-x-3 mb-4">
                 <div className={`p-2 rounded-full ${darkMode ? 'bg-darkbg/80' : 'bg-lightbg/80'}`}>
                   <ChefHat size={18} />
@@ -223,7 +230,7 @@ const InfoSection = () => {
               <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 My kitchen experiments rival my coding projects in complexity.
               </p>
-            </div>
+            </div> */}
             
           </motion.div>
         </div>

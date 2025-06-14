@@ -54,7 +54,7 @@ const VantaBg = ({ children, darkMode }) => {
         alignItems: "center",
         position: "relative",
         width: "70%", 
-        height: "25px",
+        height: "15px",
         borderRadius: "45px",
         overflow: "hidden",
         margin: "0 auto",

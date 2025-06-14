@@ -13,26 +13,23 @@ const Footer = () => {
       <div className="w-11/12 sm:w-10/12 md:w-7/10 lg:w-7/10 mx-auto px-4 sm:px-6 py-6 grid grid-cols-3">
         {/* Left - Made by text */}
         <motion.span 
-          className="justify-self-start text-xs sm:text-xs md:text-base cursor-pointer" 
-          whileHover={{ scale: 1.05 }}
+          className="justify-self-start text-xs sm:text-xs md:text-base " 
         >
           made by adi.
         </motion.span>
 
         {/* Center - Social links */}
-        <div className="justify-self-center flex items-center">
+        <div className=" justify-self-center flex items-center">
           <motion.a 
-            className="text-xs sm:text-xs md:text-base cursor-pointer" 
-            whileHover={{ scale: 1.05 }}
+            className=" sm:text-xs md:text-[12px] text-gray-50/50 " 
           >
-            !framer-template
+            not a framer-template
           </motion.a>
         </div>
 
         {/* Right - Copyright */}
         <motion.span 
-          className="justify-self-end text-xs sm:text-xs md:text-base cursor-pointer" 
-          whileHover={{ scale: 1.05 }}
+          className="justify-self-end text-xs sm:text-xs md:text-base " 
         >
           @2025
         </motion.span>
