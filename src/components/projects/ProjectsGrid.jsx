@@ -19,7 +19,8 @@ const ProjectsGrid = () => {
       id: 2,
       type: "poster",
       image: "/images/liquor.png",
-      category: "Graphic Design"
+      category: "Graphic Design",
+      externalLink: "https://www.behance.net/0xaadi" 
     },
     {
       id: 1,
@@ -27,7 +28,7 @@ const ProjectsGrid = () => {
       type: "case-study-with-thumbnail",  
       image: "/images/city/citysync.gif",  
       thumbnail: "/images/city/city2.png",
-      // externalLink: "https://citysync.vercel.app"
+      externalLink: "https://www.behance.net/0xaadi" 
     },
     {
       id: 4,
@@ -35,11 +36,12 @@ const ProjectsGrid = () => {
       videoUrl: "/videos/2k22.mp4",
       videoUrlWebm: "/videos/webm/2k22.webm",
       thumbnail: "/images/2k22thumb.jpg",
-      category: "Motion Design"
+      category: "Motion Design",
+      externalLink: "https://www.behance.net/gallery/228177887/Motion-Design-and-VFX" 
     },
   ]
 
-  // Updated function to open in a new tab 
+  // Function to open links in a new tab
   const handleProjectClick = (project) => {
     if (project.externalLink) {
       window.open(project.externalLink, '_blank', 'noopener,noreferrer');
@@ -77,10 +79,11 @@ const ProjectsGrid = () => {
         
         {/* Poster */}
         <motion.div
-          className="col-span-12 lg:col-span-4 h-[400px] relative rounded-xl overflow-hidden"
+          className="col-span-12 lg:col-span-4 h-[400px] relative rounded-xl overflow-hidden cursor-pointer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
+          onClick={() => handleProjectClick(projects[1])}
         >
           <ProjectCard 
             project={projects[1]}
@@ -110,10 +113,11 @@ const ProjectsGrid = () => {
         
         {/* Motion Design */}
         <motion.div
-          className="col-span-12 md:col-span-6 h-[300px] relative rounded-xl overflow-hidden"
+          className="col-span-12 md:col-span-6 h-[300px] relative rounded-xl overflow-hidden cursor-pointer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
+          onClick={() => handleProjectClick(projects[3])}
         >
           <ProjectCard 
             project={projects[3]}

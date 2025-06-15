@@ -88,7 +88,7 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false, da
       }
       
       // Stop event propagation so it doesn't trigger parent onClick
-      e.stopPropagation();
+      // e.stopPropagation();
     }
   };
 
@@ -149,7 +149,7 @@ const ProjectCard = ({ project, className = "", delay = 0, videoLoop = false, da
           />
           
           {/* Add an extra dark overlay to ensure text visibility */}
-Z        </>
+        </>
       )}
       
       {(project.type === 'case-study' || project.type === 'poster') && (

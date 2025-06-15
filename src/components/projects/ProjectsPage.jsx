@@ -44,7 +44,7 @@ const ProjectsPage = ({ onBackClick }) => {
     {
       id: 'posters',
       name: 'GRAPHIC DESIGN',
-      image: '/images/zen.png',
+      image: '/images/liquor.png',
       type: 'video',
       videoUrl: '/videos/pos.mp4',
       videoUrlWebm: "/videos/webm/pos.webm", 
