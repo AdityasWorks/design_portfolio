@@ -20,7 +20,7 @@ const ProjectsGrid = () => {
       type: "poster",
       image: "/images/liquor.png",
       category: "Graphic Design",
-      externalLink: "https://www.behance.net/0xaadi" 
+      externalLink: "https://www.behance.net/gallery/228418545/Graphic-Design" 
     },
     {
       id: 1,

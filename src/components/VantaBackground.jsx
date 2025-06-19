@@ -17,8 +17,8 @@ const VantaBackground = ({ children, darkMode }) => {
   // Calculate zoom based on screen width
   const getZoomLevel = (width) => {
     if (width < 1000) return 0.2; // Mobile
-    if (width < 1280) return 0.4; // Small Desktop
-    return 0.6; // Large Desktop
+    if (width < 1280) return 0.3; // Small Desktop
+    return 0.5; // Large Desktop
   };
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const VantaBackground = ({ children, darkMode }) => {
       vantaEffect.setOptions({
         highlightColor: darkMode ? 0xc46b37 : 0xf76d48,
         midtoneColor: darkMode ? 0xc387ff : 0xFBFBFB,
-        lowlightColor: darkMode ? 0x8eedd2 : 0xbeddc7,
+        lowlightColor: darkMode ? 0x8eedd2 : 0xfbfbfb,
         baseColor: darkMode ? 0x192961 : 0x88b2e3,
         zoom: getZoomLevel(windowWidth), // Update zoom based on current window width
         pixelRatio: 1 // Keep consistent

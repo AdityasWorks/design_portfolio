@@ -48,11 +48,11 @@ const InfoSection = () => {
               
               <div>
                 <div className={`flex flex-col text-sm sm:flex-row sm:items-center`}>
-                  <div className={`font-medium w-36 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>2022 — 2023</div>
-                  <div className="font-medium">Freelance Designer & Developer</div>
+                  <div className={`font-medium w-36 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>2021 — 2023</div>
+                  <div className="font-medium">Freelance work</div>
                 </div>
                 <p className={`mt-1 pl-0 text-sm sm:pl-36 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                  Worked with clients on graphic design projects, video editing, and web development.
+                  Worked with clients on graphic design projects, video editing, and some web development.
                 </p>
               </div>
             </div>
@@ -92,11 +92,11 @@ const InfoSection = () => {
               </div>
               <ul className={`text-sm pl-3 space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 <li>UI/UX Design</li>
-                <li>Figma, Adobe XD</li>
+                <li>Figma, Notion, Miro</li>
                 <li>Photoshop, Illustrator</li>
                 <li>Motion design (After Effects)</li>
                 <li>3D Art (Blender, Unreal Engine)</li>
-                <li>Brand identity</li>
+                {/* <li>Brand identity</li> */}
               </ul>
             </div>
 
