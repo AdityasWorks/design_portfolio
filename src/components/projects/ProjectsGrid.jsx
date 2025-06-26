@@ -13,14 +13,14 @@ const ProjectsGrid = () => {
       videoUrl: "/videos/loop8.mp4",
       videoUrlWebm: "/videos/webm/loop8.webm", 
       thumbnail: "/images/l8hero.png",
-      externalLink: "https://www.behance.net/gallery/227953655/Layer8"
+      externalLink: "https://www.behance.net/0xaadi"
     },
     {
       id: 2,
       type: "poster",
       image: "/images/liquor.png",
       category: "Graphic Design",
-      externalLink: "https://www.behance.net/gallery/228418545/Graphic-Design" 
+      externalLink: "https://www.behance.net/0xaadi" 
     },
     {
       id: 1,

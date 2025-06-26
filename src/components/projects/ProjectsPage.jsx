@@ -112,6 +112,7 @@ const ProjectsPage = ({ onBackClick }) => {
             className="col-span-3 relative h-full cursor-pointer overflow-hidden group"
             onMouseEnter={() => setHoveredCategoryId(category.id)}
             onMouseLeave={() => setHoveredCategoryId(null)}
+            onClick={() => window.open("https://www.behance.net/0xaadi", "_blank", "noopener,noreferrer")}
           >
             {/* Video or Image Content */}
             {category.type === 'video' ? (
@@ -172,6 +173,7 @@ const ProjectsPage = ({ onBackClick }) => {
             className="col-span-2 relative h-full cursor-pointer overflow-hidden group"
             onMouseEnter={() => setHoveredCategoryId(category.id)}
             onMouseLeave={() => setHoveredCategoryId(null)}
+            onClick={() => window.open("https://www.behance.net/0xaadi", "_blank", "noopener,noreferrer")}
           >
             {/* Video or Image Content */}
             {category.type === 'video' ? (
