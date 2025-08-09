@@ -58,7 +58,7 @@ const InfoSection = () => {
             </div>
             
             <p className={` ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              Currently in my third year of Computer Science at Bennett University (2022 — 2026).
+              Currently in my fourth year of Computer Science at Bennett University (2022 — 2026).
             </p>
           </motion.div>
         </div>
