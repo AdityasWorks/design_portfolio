@@ -101,7 +101,7 @@ const VantaBackground = ({ children, darkMode }) => {
         >
             <div
                 className="w-full md:pb-[33%] lg:pb-[44%]"
-                style={{ minHeight: windowWidth < 640 ? "180px" : "180px" }}
+                style={{ minHeight: windowWidth < 640 ? "460px" : "220px" }}
             >
                 <div
                     ref={myRef}
