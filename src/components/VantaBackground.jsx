@@ -17,8 +17,8 @@ const VantaBackground = ({ children, darkMode }) => {
 
     // Calculate zoom based on screen width
     const getZoomLevel = width => {
-        if (width < 1024) return 0.2; // Mobile
-        if (width < 640) return 0.3; // Small Desktop
+        if (width < 1024) return 0.5; 
+        if (width < 640) return 0.5; 
         return 0.5; // Large Desktop
     };
 
